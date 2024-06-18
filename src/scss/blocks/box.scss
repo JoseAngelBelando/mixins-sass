@@ -1,0 +1,87 @@
+@use '../mixins/hover.scss' as *;
+@use '../mixins/pseudo.scss' as *;
+@use '../mixins/responsive.scss' as *;
+
+/*.box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+
+    @include hover {
+        background-color: steelblue;
+    }
+
+    &::after{
+        @include pseudo(100px, 100px){
+            top: 200px;
+            left: 200px;
+            background-color: red;
+        }
+    }
+    @include responsive(tablet){
+        width: 500px;
+        background-color: steelblue;
+    }
+    @include responsive(laptop){
+        background-color: aqua;
+    }
+    @include responsive(desktop){
+        background-color: limegreen;
+    }
+}
+*/
+/*
+ORDEN DE PROPIEDADES
+
+position / top / left....
+display
+box-model
+colores
+el resto
+
+*/
+
+/*
+    MOVIMIENTO Y SCALAS -> TRANSLATE, ROTATE Y SCALE SIEMPRE
+    MOSTRAR /OCULTAR -> opacity siempre
+
+    LA PROPIEDDAD CORRESPONDIENTE
+*/
+/*.box{
+    position: absolute;
+    // left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    translate: 0;
+    transition: translate .3s;
+    @include hover{
+        translate: 100px;
+    }
+}
+    */
+.container{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: repeat;
+    gap: 1rem;
+    
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    color: #333;
+    font-size: 3rem;
+}
+.box-1{
+    grid-column: 2 / 4;
+}
+.box-2{
+    grid-row: 1 / 3;
+}
